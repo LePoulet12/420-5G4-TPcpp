@@ -8,6 +8,20 @@ using namespace std;
 // Constructor
 Library::Library() {}
 
+void Library::displayBookAvecEmprunteur(const Book& book) {
+    cout << book.toString() << "\n";
+
+    if (!book.getAvailability()) {
+        User* utilisateur = findUserById(book.getBorrowerId());
+
+        if (utilisateur != nullptr) {
+            cout << "Emprunteur: " << utilisateur->getName() << "\n";
+        } else {
+            cout << "Emprunteur: Utilisateur introuvable\n";
+        }
+    }
+}
+
 // Add book to library
 void Library::addBook(const Book& book) {
     books.push_back(make_unique<Book>(book));
@@ -156,7 +170,7 @@ void Library::displayAllBooks() {
     cout << "\n=== TOUS LES LIVRES ===\n";
     for (size_t i = 0; i < books.size(); ++i) {
         cout << "\nLivre " << (i + 1) << " :\n";
-        cout << books[i]->toString() << "\n";
+        displayBookAvecEmprunteur(*books[i]);
         cout << "-------------------------\n";
     }
 }
@@ -173,7 +187,7 @@ void Library::displayAvailableBooks() {
     cout << "\n=== LIVRES DISPONIBLES ===\n";
     for (size_t i = 0; i < available.size(); ++i) {
         cout << "\nLivre " << (i + 1) << " :\n";
-        cout << available[i]->toString() << "\n";
+        displayBookAvecEmprunteur(*available[i]);
         cout << "---------------------------\n";
     }
 }

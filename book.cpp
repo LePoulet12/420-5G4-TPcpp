@@ -6,16 +6,12 @@ using namespace std;
 
 
 //Constructeur par defaut
-Book::Book() : title(""), author(""), isbn(""), isAvailable(true), borrowerId("") {
-
-}
+Book::Book() : title(""), author(""), isbn(""), isAvailable(true), borrowerId("") {}
 
 
 //Constructeur paramétré
 Book::Book(const string& title, const string& author, const string& isbn) :
-    title(title), author(author), isbn(isbn), isAvailable(true), borrowerId("") {
-
-}
+    title(title), author(author), isbn(isbn), isAvailable(true), borrowerId("") {}
 
 
 //Getters
@@ -79,7 +75,7 @@ string Book::toString() const {
 }
 
 string Book::toFileFormat() const {
-     return title + "|" + author + "|" + isbn + "|" + (isAvailable ? "1|" : "0|" + borrowerId);
+    return title + "|" + author + "|" + isbn + "|" + (isAvailable ? "1|" : "0|" + borrowerId);
 }
 
 void Book::fromFileFormat(const string& line) {
@@ -92,7 +88,7 @@ void Book::fromFileFormat(const string& line) {
         champs.push_back(champ);
     }
 
-    // ajoute "" si il y a 4 elements et que le dernier est vide (pour le borrowerId)
+    // Si la ligne finit par |, ajouter le dernier champ vide ""
     if (!line.empty() && line.back() == '|') {
         champs.push_back("");
     }
