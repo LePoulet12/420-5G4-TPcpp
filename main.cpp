@@ -4,8 +4,6 @@
 #include <filesystem>
 #include <fstream>
 #include <chrono>
-#include <ctime>
-#include <iomanip>
 
 #include "library.h"
 #include "filemanager.h"
@@ -315,12 +313,18 @@ int main(int argc, char* argv[]) {
             }
             
             case 0: // Exit
-                cout << "Sauvegarde des données avant la fermeture...\n";
-                fileManager.saveLibraryData(library);
-                cout << "Merci d'avoir utilisé le Système de Gestion de Bibliothèque Personnelle !\n";
+                if (fileManager.saveLibraryData(library)) {
+                    cout << "Données sauvegardées avant la fermeture.\n";
+                } else {
+                    cout << "Fermeture sans sauvegarde des données.\n";
+                }
+
+                cout << "Merci d'avoir utilisé le Système de Gestion "
+                    << "de Bibliothèque Personnelle !\n";
+
                 running = false;
                 break;
-            
+
             default:
                 cout << "Choix invalide. Veuillez réessayer.\n";
                 pauseForInput();
