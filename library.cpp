@@ -10,7 +10,7 @@ Library::Library() {}
 
 void Library::displayBookAvecEmprunteur(const Book& book) {
     cout << book.toString() << "\n";
-
+ 
     if (!book.getAvailability()) {
         User* utilisateur = findUserById(book.getBorrowerId());
 

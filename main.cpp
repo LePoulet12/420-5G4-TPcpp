@@ -305,7 +305,7 @@ int main(int argc, char* argv[]) {
                 pauseForInput();
                 break;
             }
-            
+             
             case 13: { // Create Backup
                 fileManager.createBackup();
                 pauseForInput();

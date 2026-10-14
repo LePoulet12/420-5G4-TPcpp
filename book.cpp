@@ -8,7 +8,7 @@ using namespace std;
 //Constructeur par defaut
 Book::Book() : title(""), author(""), isbn(""), isAvailable(true), borrowerId("") {}
 
-
+ 
 //Constructeur paramétré
 Book::Book(const string& title, const string& author, const string& isbn) :
     title(title), author(author), isbn(isbn), isAvailable(true), borrowerId("") {}
