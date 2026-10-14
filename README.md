@@ -3,11 +3,25 @@
 **Nom :** William Meunier  
 **DA :** 2361359
 
+# Table des matières
+
+- [Construire le projet](#construire-le-projet)
+- [Répertoire data](#répertoire-data)
+- [Fonctionnalités ajoutées](#fonctionnalités-ajoutées)
+  - [Interface et expérience utilisateur](#interface-et-expérience-utilisateur)
+  - [Gestion des données](#gestion-des-données)
+  - [Journal d’activités](#journal-dactivités)
+  - [Correction de la sauvegarde](#correction-de-la-sauvegarde)
+- [Question 1 — Une notion utilisée en C++](#question-1--une-notion-utilisée-en-c)
+- [Question 2 — Une solution adaptée à une grande bibliothèque](#question-2--une-solution-adaptée-à-une-grande-bibliothèque)
+
+
+
 # Construire le projet
 Vous pouvez utiliser un dev container de base C++ de VScode.
 Le projet utilise cmake, pensez à l'inclure dans votre dev container.
 
-Voici les lignes de commandes pour compiler le projet:
+Voici les lignes de commandes pour compiler le projet :
 ```
 $ mkdir build
 $ cd build
@@ -47,6 +61,18 @@ Les actions enregistrées sont :
 - La suppression d’un livre.
 - L’emprunt d’un livre.
 - Le retour d’un livre.
+
+
+Exemple de journal:
+
+```
+2026-10-14 20:32:44 - [AJOUT LIVRE] testjournal|auteur|132575|1|
+2026-10-14 20:33:29 - [EMPRUNT LIVRE] Britannicus|Jean Racine|9782070380824|0|USR015
+2026-10-14 20:33:44 - [RETOUR LIVRE] Britannicus|Jean Racine|9782070380824|1|
+2026-10-14 20:35:22 - [AJOUT LIVRE] beautitre|beaunom|9871|1|
+2026-10-14 20:38:22 - [SUPPRESSION LIVRE] beautitre|beaunom|9871|1|
+2026-10-14 20:52:50 - [AJOUT LIVRE] drthhtyfd|srth|135512|1|
+```
 
 
 ### Correction de la sauvegarde
